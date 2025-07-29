@@ -7,7 +7,12 @@ const auth = require('./middleware/auth');
 const app = express();
 
 // ✅ CORS SETUP
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 
 // Connect to DB
 connectDB();
