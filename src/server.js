@@ -1,13 +1,19 @@
-
 const express = require('express');
 const connectDB = require('./config/database');
 const authRoutes = require('./routes/auth');
 const auth = require('./middleware/auth');
+const cors = require('cors'); // 🟢 ADD THIS
 
 const app = express();
 
 // Connect to database
 connectDB();
+
+// 🟢 Enable CORS
+app.use(cors({
+  origin: 'http://localhost:5176', // frontend dev URL
+  credentials: true
+}));
 
 // Init middleware
 app.use(express.json({ extended: false }));
