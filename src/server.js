@@ -7,11 +7,7 @@ const auth = require('./middleware/auth');
 const app = express();
 
 // ✅ CORS SETUP
-app.use(cors({
-  origin: ['http://localhost:5176', 'https://your-frontend-domain.com'], // Add both local and deployed domains
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}));
+app.use(cors());
 
 // Connect to DB
 connectDB();
